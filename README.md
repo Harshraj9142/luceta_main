@@ -2,6 +2,18 @@
 
 > **AI-Powered Audio for Game Developers** — From Code to Sound in One Click
 
+[![Demo Video](https://img.shields.io/badge/▶️_Demo_Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/cZ6AUGeXEKE?si=q9HAYUgk3r9T9LQq)
+[![Dodo Payments](https://img.shields.io/badge/Dodo_Payments-4F46E5?style=for-the-badge&logo=stripe&logoColor=white)](https://dodopayments.com)
+[![ElevenLabs](https://img.shields.io/badge/ElevenLabs-10B981?style=for-the-badge&logo=soundcloud&logoColor=white)](https://elevenlabs.io)
+[![Requestly](https://img.shields.io/badge/Requestly-EC4899?style=for-the-badge&logo=postman&logoColor=white)](https://requestly.io)
+[![Kiro AI](https://img.shields.io/badge/Kiro_AI-8B5CF6?style=for-the-badge&logo=openai&logoColor=white)](https://kiro.ai)
+
+[![Next.js](https://img.shields.io/badge/Next.js_15-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org)
+[![Godot](https://img.shields.io/badge/Godot_4.x-478CBF?style=flat&logo=godot-engine&logoColor=white)](https://godotengine.org)
+[![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=flat&logo=ethereum&logoColor=white)](https://ethereum.org)
+[![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat&logo=solidity&logoColor=white)](https://soliditylang.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+
 ![Luceta Banner](public/placeholder.jpg)
 
 ---
@@ -967,37 +979,37 @@ graph TB
     end
 
     subgraph "Web Platform - Backend APIs"
-        CHECKOUT[/api/checkout]
-        WEBHOOK[/api/webhooks/dodo]
-        UPLOAD[/api/upload]
-        LISTINGS[/api/listings]
+        CHECKOUT[API Checkout]
+        WEBHOOK[API Webhooks]
+        UPLOAD[API Upload]
+        LISTINGS[API Listings]
     end
 
     subgraph "External Services - AI"
-        GROQ[Groq AI API<br/>Code Analysis]
-        ELEVEN[ElevenLabs API<br/>Audio Generation]
-        ELEVENMCP[ElevenLabs MCP<br/>AI Assistant]
-        ELEVENAGENT[ElevenLabs Agent<br/>Voice Support]
+        GROQ[Groq AI API - Code Analysis]
+        ELEVEN[ElevenLabs API - Audio Generation]
+        ELEVENMCP[ElevenLabs MCP - AI Assistant]
+        ELEVENAGENT[ElevenLabs Agent - Voice Support]
     end
 
     subgraph "External Services - Payments"
-        DODO[Dodo Payments<br/>Subscription API]
+        DODO[Dodo Payments - Subscription API]
     end
 
     subgraph "External Services - Storage"
-        IPFS[Pinata IPFS<br/>Decentralized Storage]
+        IPFS[Pinata IPFS - Decentralized Storage]
     end
 
     subgraph "Blockchain - Ethereum Sepolia"
-        SONGNFT[SongNFT Contract<br/>0xf867...9dF2]
-        NFTMARKET[NFTMarketplace<br/>0x1e89...7e59]
+        SONGNFT[SongNFT Contract]
+        NFTMARKET[NFTMarketplace Contract]
         METAMASK[MetaMask Wallet]
     end
 
     subgraph "Development Tools"
-        KIRO[Kiro AI<br/>Planning & MCP]
-        REQUESTLY[Requestly<br/>API Mocking]
-        LUCETAPOWER[Luceta MCP Power<br/>Custom Tools]
+        KIRO[Kiro AI - Planning & MCP]
+        REQUESTLY[Requestly - API Mocking]
+        LUCETAPOWER[Luceta MCP Power - Custom Tools]
     end
 
     %% Game Developer Flow
