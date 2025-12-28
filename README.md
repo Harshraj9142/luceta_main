@@ -98,7 +98,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### ii. ElevenLabs MCP Server
 
-![MCP Integration](static/mcp11.png)
+![MCP Integration](static/mcp.png)
 
 - 🤖 **AI Assistant Integration** — Kiro/Claude can generate game audio via MCP
 - 🔧 **Tool Calling** — AI understands game context and creates appropriate sounds
@@ -113,7 +113,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### iii. ElevenLabs Conversational AI Agent
 
-![Agent Workflow](static/mcp.pngpeg)
+![Agent Workflow](static/agent-work.jpeg)
 
 - 📞 **Voice Chat Support** — 24/7 AI agent with WebRTC voice calls
 - 📧 **Gmail Integration** — Agent can send subscription confirmations via email
