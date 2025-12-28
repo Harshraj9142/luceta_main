@@ -1,10 +1,142 @@
 # Luceta Audio Platform 🎵
 
-> Build locally, sell globally — AI-powered audio for game developers
-
-Luceta is a comprehensive audio platform for game developers featuring AI-generated sound effects, a marketplace for audio assets, and seamless payment integration.
+> **AI-Powered Audio for Game Developers** — From Code to Sound in One Click
 
 ![Luceta Banner](public/placeholder.jpg)
+
+---
+
+## 🎮 The Problem Game Developers Face
+
+Building game audio is **painful, expensive, and time-consuming**:
+
+- ❌ **Hiring Sound Designers** costs $50-200/hour — out of reach for indie devs
+- ❌ **Royalty-Free Libraries** have generic sounds that don't match your game's vibe
+- ❌ **Manual Audio Integration** requires writing boilerplate code for every sound
+- ❌ **No AI Tools for Game Audio** — ChatGPT can't analyze your game code or generate contextual SFX
+- ❌ **Expensive Iterations** — every gameplay change needs new audio, burning time and budget
+- ❌ **No MCP Integration** — AI assistants can't help with game audio workflows in the AI era
+
+**Result:** Indie developers ship games with **no audio** or **placeholder sounds**, killing player immersion.
+
+---
+
+## ✨ The Luceta Solution
+
+**AI-powered audio generation that understands your game code** — no manual work required.
+
+### 🚀 Godot Plugin: One-Click Audio Magic
+
+- ✅ **Analyze Code** → AI scans your `.gd` scripts and detects game events (jumps, coins, deaths)
+- ✅ **Auto-Generate SFX** → ElevenLabs creates contextual sound effects from text descriptions
+- ✅ **Auto-Integrate** → Sounds are automatically wired into your game scripts (no coding!)
+- ✅ **NPC Voice Acting** → Generate character dialog with AI voices (no voice actors needed)
+- ✅ **Background Music** → Create looping ambient tracks and BGM
+- ✅ **Re-prompt & Iterate** → Don't like a sound? Edit the description and regenerate instantly
+- ✅ **Game Logic Detection** → Plugin understands player actions, collectibles, enemies, UI events
+
+### 🌐 Web Platform: Monetize Your Audio
+
+- ✅ **NFT Marketplace** → Mint and sell music as NFTs on Ethereum (IPFS + smart contracts)
+- ✅ **Subscription Tiers** → Starter ($9), Pro ($29), Enterprise ($99) via Dodo Payments
+- ✅ **AI Voice Agent** → 24/7 support with ElevenLabs conversational AI (can call your phone!)
+
+### 🛠️ Developer Tools
+
+- ✅ **Requestly Mocks** → Test without burning API credits or gas fees
+- ✅ **MCP Server** → AI assistants can generate game audio via Model Context Protocol
+- ✅ **Smart Contracts** → Decentralized NFT trading with 2.5% marketplace fee
+
+---
+
+## 🎯 How It Works (Godot Plugin)
+
+```
+1. Click "Analyze Code" 
+   → AI scans player.gd, coin.gd, killzone.gd
+
+2. Review AI Suggestions
+   → "player_jump" - Powerful whoosh with springy pop
+   → "coin_collect" - Bright sparkle with magical shimmer
+   → "player_death" - Dramatic impact with descending tone
+
+3. Click "Generate Audio"
+   → ElevenLabs creates MP3 files in 30 seconds
+
+4. Click "Integrate"
+   → Sounds auto-wired into your scripts:
+      • Variables declared
+      • Files loaded in _ready()
+      • _play_sfx() calls added at right moments
+
+5. Press Play
+   → Your game now has professional audio! 🎉
+```
+
+**No coding. No manual integration. Just AI magic.**
+
+---
+
+## �️ ElkevenLabs Integration: 4 Ways We Use AI Audio
+
+<table>
+<tr>
+<td width="50%">
+
+### i. ElevenLabs API (Godot Plugin)
+
+![Godot Panel](static/godot-panel.png)
+
+- 🎵 **Text-to-Speech (TTS)** — Generate NPC dialog voices in 29 languages
+- 🔊 **Sound Effect Generation** — Create game SFX from text descriptions
+- 🎼 **Background Music (BGM)** — Generate looping ambient tracks
+- 🎶 **Music Generation** — Create custom game soundtracks
+- ⚡ **Real-time Generation** — Audio ready in 30 seconds directly in Godot Editor
+
+</td>
+<td width="50%">
+
+### ii. ElevenLabs MCP Server
+
+![MCP Integration](static/Screenshot%202025-12-28%20at%209.32.38%20AM.png)
+
+- 🤖 **AI Assistant Integration** — Kiro/Claude can generate game audio via MCP
+- 🔧 **Tool Calling** — AI understands game context and creates appropriate sounds
+- 📦 **Batch Generation** — Generate multiple sounds in one conversation
+- 🔄 **Iterative Refinement** — AI can re-prompt and improve audio based on feedback
+- 🎯 **Context-Aware** — MCP server analyzes game code to suggest relevant audio
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### iii. ElevenLabs Conversational AI Agent
+
+![Agent Workflow](static/agent-work.jpeg)
+
+- 📞 **Voice Chat Support** — 24/7 AI agent with WebRTC voice calls
+- 📧 **Gmail Integration** — Agent can send subscription confirmations via email
+- 📅 **Calendly Tool Calling** — Schedule demo calls automatically
+- 🎤 **Outbound Phone Calls** — Agent can call users via Twilio integration
+- 💬 **Multi-turn Conversations** — Handles complex support queries with context
+
+</td>
+<td width="50%">
+
+### iv. ElevenLabs React UI Library
+
+![UI Library](static/Screenshot%202025-12-28%20at%209.35.29%20AM.png)
+
+- 🎨 **Pre-built Components** — `<Conversation>` component with orb animation
+- 🌐 **Web Integration** — Embedded AI agent on homepage for instant support
+- 🎭 **Custom Styling** — Shimmering text effects and glassmorphism design
+- 🔊 **Audio Visualization** — Real-time waveform during voice conversations
+- ⚡ **Zero Config** — Just pass agent ID and it works out of the box
+
+</td>
+</tr>
+</table>
 
 ---
 
