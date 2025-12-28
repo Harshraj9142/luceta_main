@@ -98,7 +98,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### ii. ElevenLabs MCP Server
 
-![MCP Integration](static/Screenshot%202025-12-28%20at%209.32.38%20AM.png)
+![MCP Integration](static/mcp11.png)
 
 - 🤖 **AI Assistant Integration** — Kiro/Claude can generate game audio via MCP
 - 🔧 **Tool Calling** — AI understands game context and creates appropriate sounds
@@ -113,7 +113,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### iii. ElevenLabs Conversational AI Agent
 
-![Agent Workflow](static/agent-work.jpeg)
+![Agent Workflow](static/mcp11jpeg)
 
 - 📞 **Voice Chat Support** — 24/7 AI agent with WebRTC voice calls
 - 📧 **Gmail Integration** — Agent can send subscription confirmations via email
@@ -126,7 +126,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### iv. ElevenLabs React UI Library
 
-![UI Library](static/Screenshot%202025-12-28%20at%209.35.29%20AM.png)
+![UI Library](static/orb.png)
 
 - 🎨 **Pre-built Components** — `<Conversation>` component with orb animation
 - 🌐 **Web Integration** — Embedded AI agent on homepage for instant support
@@ -152,11 +152,11 @@ During development, our Mac got **flagged by multiple services** (Dodo Payments,
 
 We used **Requestly** to mock ALL external APIs, allowing us to:
 
-- 🎯 **Keep Building** — Develop without hitting rate limits or burning credits
-- 💰 **Save Money** — Test payment flows without real transactions
-- ⚡ **Instant Responses** — No network latency, instant mock responses
-- 🧪 **Test Edge Cases** — Simulate errors, delays, and failures easily
-- 🎬 **Perfect Demos** — Show features without depending on external services
+-  **Keep Building** — Develop without hitting rate limits or burning credits
+- **Save Money** — Test payment flows without real transactions
+- **Instant Responses** — No network latency, instant mock responses
+- **Test Edge Cases** — Simulate errors, delays, and failures easily
+- **Perfect Demos** — Show features without depending on external services
 
 ### 📁 Our Requestly Rules
 
