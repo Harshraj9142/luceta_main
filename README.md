@@ -113,7 +113,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ### iii. ElevenLabs Conversational AI Agent
 
-![Agent Workflow](static/mcp11jpeg)
+![Agent Workflow](static/mcp.pngpeg)
 
 - 📞 **Voice Chat Support** — 24/7 AI agent with WebRTC voice calls
 - 📧 **Gmail Integration** — Agent can send subscription confirmations via email
@@ -212,9 +212,8 @@ We used **Requestly** to mock ALL external APIs, allowing us to:
 ### 📚 Additional Requestly Files
 
 - [`requestly/rules/elevenlabs-godot-mock.json`](requestly/rules/elevenlabs-godot-mock.json) — Godot plugin mocks
-- [`requestly/scripts/demo-banner-v2.js`](requestly/scripts/demo-banner-v2.js) — Demo mode indicator
+
 - [`requestly/scripts/chaos-engineering.js`](requestly/scripts/chaos-engineering.js) — Random failure injection
-- [`requestly/DEMO_SCRIPT_30SEC.md`](requestly/DEMO_SCRIPT_30SEC.md) — 30-second pitch script
 
 **Result:** We built and tested the entire platform **without spending a dollar on API calls** during development! 🚀
 
@@ -937,6 +936,171 @@ MIT License — see [LICENSE](LICENSE) for details.
 - [ElevenLabs](https://elevenlabs.io) — AI audio generation
 - [Requestly](https://requestly.io) — API testing tools
 - [Godot Engine](https://godotengine.org) — Game engine
+- [Kiro](https://kiro.ai) — AI-powered development
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TB
+    subgraph "Game Developers"
+        DEV[Game Developer]
+        GODOT[Godot Engine]
+    end
+
+    subgraph "Luceta Godot Plugin"
+        PLUGIN[Luceta Plugin]
+        ANALYZER[Code Analyzer]
+        GENERATOR[Audio Generator]
+        INTEGRATOR[Sound Integrator]
+        CACHE[Audio Cache]
+    end
+
+    subgraph "Web Platform - Frontend"
+        WEBAPP[Next.js Web App]
+        LANDING[Landing Page]
+        PRICING[Pricing Section]
+        MARKETPLACE[NFT Marketplace]
+        WALLET[Wallet Button]
+        VOICE[AI Voice Agent]
+    end
+
+    subgraph "Web Platform - Backend APIs"
+        CHECKOUT[/api/checkout]
+        WEBHOOK[/api/webhooks/dodo]
+        UPLOAD[/api/upload]
+        LISTINGS[/api/listings]
+    end
+
+    subgraph "External Services - AI"
+        GROQ[Groq AI API<br/>Code Analysis]
+        ELEVEN[ElevenLabs API<br/>Audio Generation]
+        ELEVENMCP[ElevenLabs MCP<br/>AI Assistant]
+        ELEVENAGENT[ElevenLabs Agent<br/>Voice Support]
+    end
+
+    subgraph "External Services - Payments"
+        DODO[Dodo Payments<br/>Subscription API]
+    end
+
+    subgraph "External Services - Storage"
+        IPFS[Pinata IPFS<br/>Decentralized Storage]
+    end
+
+    subgraph "Blockchain - Ethereum Sepolia"
+        SONGNFT[SongNFT Contract<br/>0xf867...9dF2]
+        NFTMARKET[NFTMarketplace<br/>0x1e89...7e59]
+        METAMASK[MetaMask Wallet]
+    end
+
+    subgraph "Development Tools"
+        KIRO[Kiro AI<br/>Planning & MCP]
+        REQUESTLY[Requestly<br/>API Mocking]
+        LUCETAPOWER[Luceta MCP Power<br/>Custom Tools]
+    end
+
+    %% Game Developer Flow
+    DEV -->|Uses| GODOT
+    GODOT -->|Installs| PLUGIN
+    PLUGIN -->|1. Analyze Code| ANALYZER
+    ANALYZER -->|Sends Code| GROQ
+    GROQ -->|Returns Suggestions| ANALYZER
+    ANALYZER -->|2. Generate Audio| GENERATOR
+    GENERATOR -->|API Call| ELEVEN
+    ELEVEN -->|Returns MP3| GENERATOR
+    GENERATOR -->|Saves| CACHE
+    CACHE -->|3. Auto-Integrate| INTEGRATOR
+    INTEGRATOR -->|Modifies Scripts| GODOT
+
+    %% Web Platform Flow
+    DEV -->|Visits| WEBAPP
+    WEBAPP -->|Contains| LANDING
+    WEBAPP -->|Contains| PRICING
+    WEBAPP -->|Contains| MARKETPLACE
+    WEBAPP -->|Contains| VOICE
+    
+    %% Subscription Flow
+    PRICING -->|Subscribe| CHECKOUT
+    CHECKOUT -->|Create Session| DODO
+    DODO -->|Checkout URL| PRICING
+    DODO -->|Webhook Events| WEBHOOK
+    
+    %% NFT Minting Flow
+    MARKETPLACE -->|Upload Audio| UPLOAD
+    UPLOAD -->|Upload Files| IPFS
+    IPFS -->|Returns CID| UPLOAD
+    UPLOAD -->|Mint NFT| WALLET
+    WALLET -->|Connect| METAMASK
+    METAMASK -->|Sign Transaction| SONGNFT
+    SONGNFT -->|Minted| MARKETPLACE
+    
+    %% NFT Trading Flow
+    MARKETPLACE -->|List NFT| NFTMARKET
+    MARKETPLACE -->|Buy NFT| NFTMARKET
+    NFTMARKET -->|Transfer + Payment| SONGNFT
+    MARKETPLACE -->|Fetch Listings| LISTINGS
+    LISTINGS -->|Read Contract| NFTMARKET
+    LISTINGS -->|Fetch Metadata| IPFS
+    
+    %% AI Voice Support
+    VOICE -->|WebRTC Call| ELEVENAGENT
+    ELEVENAGENT -->|Gmail Tool| DEV
+    ELEVENAGENT -->|Calendly Tool| DEV
+    
+    %% Development Tools Flow
+    KIRO -->|Planning Mode| DEV
+    KIRO -->|MCP Tools| DEV
+    LUCETAPOWER -->|Custom Power| KIRO
+    ELEVENMCP -->|AI Integration| KIRO
+    REQUESTLY -->|Mock APIs| WEBAPP
+    REQUESTLY -->|Mock APIs| PLUGIN
+    
+    %% Styling
+    classDef frontend fill:#3b82f6,stroke:#1e40af,color:#fff
+    classDef backend fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef blockchain fill:#f59e0b,stroke:#d97706,color:#fff
+    classDef external fill:#10b981,stroke:#059669,color:#fff
+    classDef tools fill:#ec4899,stroke:#db2777,color:#fff
+    
+    class WEBAPP,LANDING,PRICING,MARKETPLACE,WALLET,VOICE frontend
+    class CHECKOUT,WEBHOOK,UPLOAD,LISTINGS backend
+    class SONGNFT,NFTMARKET,METAMASK blockchain
+    class GROQ,ELEVEN,ELEVENMCP,ELEVENAGENT,DODO,IPFS external
+    class KIRO,REQUESTLY,LUCETAPOWER,PLUGIN,ANALYZER,GENERATOR,INTEGRATOR,CACHE tools
+```
+
+### 🔄 Data Flow Summary
+
+**1. Godot Plugin Workflow:**
+```
+Developer → Godot → Luceta Plugin → Groq AI (analyze) → ElevenLabs (generate) → Auto-integrate → Game
+```
+
+**2. Subscription Workflow:**
+```
+User → Pricing Page → Dodo Checkout → Payment → Webhook → Database → Access Granted
+```
+
+**3. NFT Minting Workflow:**
+```
+User → Upload Audio → IPFS → Get CID → MetaMask → SongNFT Contract → Minted NFT
+```
+
+**4. NFT Trading Workflow:**
+```
+Seller → List NFT → NFTMarketplace → Buyer → MetaMask → Payment + Transfer → Completed
+```
+
+**5. AI Support Workflow:**
+```
+User → Voice Agent → ElevenLabs AI → Gmail/Calendly Tools → Support Resolved
+```
+
+**6. Development Workflow:**
+```
+Developer → Kiro Planning → MCP Tools → Requestly Mocks → Build → Test → Deploy
+```
 
 ---
 
