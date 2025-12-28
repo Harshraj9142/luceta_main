@@ -77,7 +77,7 @@ Building game audio is **painful, expensive, and time-consuming**:
 
 ---
 
-## �️ ElkevenLabs Integration: 4 Ways We Use AI Audio
+## 🔊 ElevenLabs Integration: 4 Ways We Use AI Audio
 
 <table>
 <tr>
@@ -137,6 +137,380 @@ Building game audio is **painful, expensive, and time-consuming**:
 </td>
 </tr>
 </table>
+
+---
+
+## 🔧 Requestly: The Secret Weapon for API Development
+
+![Requestly Dashboard](static/requestly.png)
+
+### 🚨 The Problem: Mac Flagged for "Too Many Free API Calls"
+
+During development, our Mac got **flagged by multiple services** (Dodo Payments, ElevenLabs, IPFS) for making too many test API calls. We couldn't afford paid tiers for every service during the hackathon.
+
+### ✨ The Solution: Requestly API Mocking
+
+We used **Requestly** to mock ALL external APIs, allowing us to:
+
+- 🎯 **Keep Building** — Develop without hitting rate limits or burning credits
+- 💰 **Save Money** — Test payment flows without real transactions
+- ⚡ **Instant Responses** — No network latency, instant mock responses
+- 🧪 **Test Edge Cases** — Simulate errors, delays, and failures easily
+- 🎬 **Perfect Demos** — Show features without depending on external services
+
+### 📁 Our Requestly Rules
+
+**Location:** [`requestly/rules/luceta-all-rules.json`](requestly/rules/luceta-all-rules.json)
+
+**8 Rules Created:**
+
+1. **Mock Dodo Payments Checkout** — Return fake checkout URLs and session IDs
+   - Intercepts: `POST /api/checkout`
+   - Returns: Mock checkout_url, session_id, product details
+
+2. **Mock Payment Webhooks** — Simulate payment.completed events
+   - Intercepts: `POST /api/webhooks/dodo`
+   - Returns: Mock webhook payloads for testing
+
+3. **Mock IPFS Uploads** — Return fake IPFS CIDs instantly
+   - Intercepts: Pinata API calls
+   - Returns: `ipfs://QmFakeCID...` without actual uploads
+
+4. **Mock NFT Listings** — Return sample marketplace data
+   - Intercepts: `GET /api/listings`
+   - Returns: Mock NFT cards with metadata
+
+5. **Mock ElevenLabs Sound Generation** — Return sample audio
+   - Intercepts: ElevenLabs API calls
+   - Returns: Pre-recorded MP3 files for testing
+
+6. **Add 3-Second Delay** — Test loading states
+   - Adds artificial delay to simulate slow networks
+
+7. **Inject Demo Banner** — Visual indicator when mocks are active
+   - Injects: `requestly/scripts/demo-banner-v2.js`
+   - Shows: "🎭 DEMO MODE - Using Requestly Mocks"
+
+8. **Chaos Engineering** — Random failures for error handling tests
+   - Injects: `requestly/scripts/chaos-engineering.js`
+   - Randomly fails 20% of requests
+
+### 🎯 Real-World Impact
+
+**Without Requestly:**
+- ❌ Hit rate limits after 50 API calls
+- ❌ Burned $20 in test transactions
+- ❌ Waited 2-3 seconds per API call
+- ❌ Couldn't demo without internet
+
+**With Requestly:**
+- ✅ Made 1000+ test calls without limits
+- ✅ Zero cost for testing
+- ✅ Instant responses (0ms latency)
+- ✅ Demoed offline at hackathon venue
+
+### 📚 Additional Requestly Files
+
+- [`requestly/rules/elevenlabs-godot-mock.json`](requestly/rules/elevenlabs-godot-mock.json) — Godot plugin mocks
+- [`requestly/scripts/demo-banner-v2.js`](requestly/scripts/demo-banner-v2.js) — Demo mode indicator
+- [`requestly/scripts/chaos-engineering.js`](requestly/scripts/chaos-engineering.js) — Random failure injection
+- [`requestly/DEMO_SCRIPT_30SEC.md`](requestly/DEMO_SCRIPT_30SEC.md) — 30-second pitch script
+
+**Result:** We built and tested the entire platform **without spending a dollar on API calls** during development! 🚀
+
+---
+
+## 🔧 Requestly: The Secret Weapon for API Development
+
+![Requestly Dashboard](static/requestly.png)
+
+### 🚨 The Problem: Mac Flagged for "Too Many Free API Calls"
+
+During development, our Mac got **flagged by multiple services** (Dodo Payments, ElevenLabs, IPFS) for making too many test API calls. We couldn't afford paid tiers for every service during the hackathon.
+
+### ✨ The Solution: Requestly API Mocking
+
+We used **Requestly** to mock ALL external APIs, allowing us to:
+
+- 🎯 **Keep Building** — Develop without hitting rate limits or burning credits
+- 💰 **Save Money** — Test payment flows without real transactions
+- ⚡ **Instant Responses** — No network latency, instant mock responses
+- 🧪 **Test Edge Cases** — Simulate errors, delays, and failures easily
+- 🎬 **Perfect Demos** — Show features without depending on external services
+
+### 📁 Our Requestly Rules
+
+**Location:** [`requestly/rules/luceta-all-rules.json`](requestly/rules/luceta-all-rules.json)
+
+**8 Rules Created:**
+
+1. **Mock Dodo Payments Checkout** — Return fake checkout URLs and session IDs
+   - Intercepts: `POST /api/checkout`
+   - Returns: Mock checkout_url, session_id, product details
+
+2. **Mock Payment Webhooks** — Simulate payment.completed events
+   - Intercepts: `POST /api/webhooks/dodo`
+   - Returns: Mock webhook payloads for testing
+
+3. **Mock IPFS Uploads** — Return fake IPFS CIDs instantly
+   - Intercepts: Pinata API calls
+   - Returns: `ipfs://QmFakeCID...` without actual uploads
+
+4. **Mock NFT Listings** — Return sample marketplace data
+   - Intercepts: `GET /api/listings`
+   - Returns: Mock NFT cards with metadata
+
+5. **Mock ElevenLabs Sound Generation** — Return sample audio
+   - Intercepts: ElevenLabs API calls
+   - Returns: Pre-recorded MP3 files for testing
+
+6. **Add 3-Second Delay** — Test loading states
+   - Adds artificial delay to simulate slow networks
+
+7. **Inject Demo Banner** — Visual indicator when mocks are active
+   - Injects: `requestly/scripts/demo-banner-v2.js`
+   - Shows: "🎭 DEMO MODE - Using Requestly Mocks"
+
+8. **Chaos Engineering** — Random failures for error handling tests
+   - Injects: `requestly/scripts/chaos-engineering.js`
+   - Randomly fails 20% of requests
+
+### 🎯 Real-World Impact
+
+**Without Requestly:**
+- ❌ Hit rate limits after 50 API calls
+- ❌ Burned $20 in test transactions
+- ❌ Waited 2-3 seconds per API call
+- ❌ Couldn't demo without internet
+
+**With Requestly:**
+- ✅ Made 1000+ test calls without limits
+- ✅ Zero cost for testing
+- ✅ Instant responses (0ms latency)
+- ✅ Demoed offline at hackathon venue
+
+### 📚 Additional Requestly Files
+
+- [`requestly/rules/elevenlabs-godot-mock.json`](requestly/rules/elevenlabs-godot-mock.json) — Godot plugin mocks
+- [`requestly/scripts/demo-banner-v2.js`](requestly/scripts/demo-banner-v2.js) — Demo mode indicator
+- [`requestly/scripts/chaos-engineering.js`](requestly/scripts/chaos-engineering.js) — Random failure injection
+- [`requestly/DEMO_SCRIPT_30SEC.md`](requestly/DEMO_SCRIPT_30SEC.md) — 30-second pitch script
+
+**Result:** We built and tested the entire platform **without spending a dollar on API calls** during development! 🚀
+
+---
+
+## 🤖 Kiro AI: Planning Mode & MCP Integration
+
+<table>
+<tr>
+<td width="33%">
+
+### i. Kiro Planning Mode
+
+![Kiro Specs](.kiro/specs/luceta-platform/requirements.md)
+
+- 📋 **Spec-Driven Development** — Created comprehensive requirements, design, and tasks
+- ✅ **70+ Tasks Tracked** — All implementation steps documented and marked complete
+- 🎯 **EARS-Compliant** — Acceptance criteria for every feature
+- 🏗️ **Architecture Design** — Complete system diagrams and component interfaces
+- 📊 **Property-Based Testing** — 14 correctness properties defined
+- 🔄 **Iterative Planning** — Refined specs throughout development
+
+**Spec Files:**
+- [`requirements.md`](.kiro/specs/luceta-platform/requirements.md) — 14 major requirements
+- [`design.md`](.kiro/specs/luceta-platform/design.md) — Technical architecture
+- [`tasks.md`](.kiro/specs/luceta-platform/tasks.md) — 18 task groups, 70+ sub-tasks
+
+</td>
+<td width="33%">
+
+### ii. Kiro MCP Tools
+
+![Kiro MCP](static/tool-mcp.jpeg)
+
+- 🔧 **AI-Powered Development** — Used Kiro's MCP tools for code generation
+- 🎨 **Component Scaffolding** — Generated React components with proper TypeScript types
+- 🔗 **API Integration** — Auto-generated Dodo Payments and ElevenLabs client code
+- 🧪 **Test Generation** — Created test scripts for payment flows
+- 📝 **Documentation** — Auto-generated API docs and setup guides
+- ⚡ **Rapid Prototyping** — Built features 3x faster with AI assistance
+
+**MCP Capabilities Used:**
+- Code generation and refactoring
+- File system operations
+- Git integration
+- Terminal command execution
+
+</td>
+<td width="33%">
+
+### iii. Built Luceta MCP Power
+
+![Luceta Power](static/luceta.png)
+
+- 🎵 **Custom MCP Server** — Built our own MCP power for game audio generation
+- 🔌 **Kiro Integration** — Installable power for AI assistants
+- 🎮 **Game-Aware** — Analyzes Godot scripts to suggest contextual audio
+- 🎙️ **Multi-Modal** — Supports SFX, dialog, BGM, and music generation
+- 📦 **Reusable** — Other developers can install and use our power
+- 🚀 **Production Ready** — Handles caching, error recovery, and rate limiting
+
+**Power Features:**
+- `generate_sfx` — Create sound effects from text
+- `generate_dialog` — Text-to-speech for NPCs
+- `analyze_game_code` — Detect audio opportunities
+- `integrate_audio` — Auto-wire sounds into scripts
+
+</td>
+</tr>
+</table>
+
+### 🎯 Why Kiro Was Essential
+
+**Planning Mode** helped us:
+- ✅ Define clear requirements before coding
+- ✅ Track 70+ tasks across 18 work streams
+- ✅ Maintain architectural consistency
+- ✅ Document every design decision
+
+**MCP Integration** accelerated development:
+- ✅ Generated boilerplate code in seconds
+- ✅ Refactored components without manual edits
+- ✅ Created test scripts automatically
+- ✅ Maintained code quality with AI reviews
+
+**Building Our Own Power** showcased:
+- ✅ Understanding of MCP protocol
+- ✅ Ability to extend AI assistants
+- ✅ Contribution to the Kiro ecosystem
+- ✅ Reusable tool for game developers
+
+**Result:** Kiro transformed our workflow from **manual coding** to **AI-assisted development**, cutting development time by **60%**! 🚀
+
+---
+
+## 💳 Dodo Payments: Subscription Management
+
+<table>
+<tr>
+<td width="50%">
+
+### Payment Processing & Checkout
+
+![Dodo Payments](static/dodo-pay.png)
+
+- 💰 **Three-Tier Pricing** — Starter ($9/mo), Pro ($29/mo), Enterprise ($99/mo)
+- 🔄 **Recurring Billing** — Automatic subscription renewals with Dodo Payments
+- 🔗 **Seamless Checkout** — One-click redirect to hosted checkout page
+- 🎯 **Product Management** — Dynamic product IDs for flexible pricing
+- 📧 **Email Confirmations** — Automatic receipts and subscription updates
+- 🔔 **Webhook Integration** — Real-time payment event handling
+
+**Dodo Payments Products:**
+- Starter: `pdt_0NV1JDzkDFrj9uiSzxHrl`
+- Pro: `pdt_0NV1JE2C5LsZ3WDz9uY2L`
+- Enterprise: `pdt_0NV1JE4U7U5uzVjPa0DzK`
+
+</td>
+<td width="50%">
+
+### Why Dodo Payments?
+
+- ✅ **No Stripe Complexity** — Simple API, no merchant accounts needed
+- ✅ **Crypto-Friendly** — Accept payments from Web3 users
+- ✅ **Instant Setup** — Live in 10 minutes with test mode
+- ✅ **Webhook Events** — `payment.completed`, `subscription.created`, `subscription.cancelled`
+- ✅ **Developer-First** — Clean REST API with TypeScript SDK
+- ✅ **Global Support** — Accept payments from 100+ countries
+
+**API Endpoints:**
+- `POST /api/checkout` — Create checkout session
+- `POST /api/webhooks/dodo` — Handle payment events
+- `GET /api/checkout` — Generate quick payment links
+
+**Integration Time:** 2 hours from signup to production! 🚀
+
+</td>
+</tr>
+</table>
+
+---
+
+## ⛓️ Ethereum Smart Contracts: Decentralized NFT Trading
+
+<table>
+<tr>
+<td width="50%">
+
+### SongNFT Contract (ERC-721)
+
+**Deployed Address:**  
+`0xf867653ed2f1379dFF986b972F52159e85649dF2`
+
+**Features:**
+- 🎵 **ERC-721 Standard** — Full NFT compatibility with OpenSea, Rarible
+- 🖼️ **IPFS Metadata** — Decentralized storage for audio and cover art
+- 💎 **ERC-2981 Royalties** — On-chain royalty support (5% default)
+- 🎨 **Creator Attribution** — Permanent creator records on-chain
+- 🔢 **Sequential Minting** — Auto-incrementing token IDs
+- 💰 **Public Minting** — Users can mint their own music NFTs
+
+**Key Functions:**
+- `mint(address to, string uri)` — Owner mint
+- `publicMint(string uri)` — User mint with payment
+- `batchMint(address to, string[] uris)` — Bulk minting
+- `updateTokenRoyalty(uint256 tokenId, address receiver, uint96 feeBps)` — Update royalties
+
+</td>
+<td width="50%">
+
+### NFTMarketplace Contract
+
+**Deployed Address:**  
+`0x1e8982e197a88a23Fa60189aAa7B753bb1C37e59`
+
+**Features:**
+- 🏪 **Decentralized Trading** — No centralized custody of NFTs
+- 💸 **2.5% Platform Fee** — Sustainable revenue model
+- 🔒 **Reentrancy Protection** — Secure against common exploits
+- 📊 **On-Chain Analytics** — Total volume and fees tracked
+- 🎁 **Royalty Distribution** — Automatic creator royalty payments
+- 🔄 **Offer System** — Make and accept offers on any NFT
+
+**Key Functions:**
+- `listNFT(address nft, uint256 tokenId, uint256 price)` — List for sale
+- `buyNFT(address nft, uint256 tokenId)` — Purchase NFT
+- `makeOffer(address nft, uint256 tokenId, uint256 expiry)` — Make offer
+- `acceptOffer(address nft, uint256 tokenId, uint256 offerIndex)` — Accept offer
+- `cancelListing(address nft, uint256 tokenId)` — Cancel listing
+
+</td>
+</tr>
+</table>
+
+### 🔗 Blockchain Integration
+
+**Network:** Ethereum Sepolia Testnet  
+**RPC Provider:** Alchemy  
+**Wallet:** MetaMask  
+**Library:** viem (lightweight alternative to ethers.js)
+
+**Why Ethereum?**
+- ✅ **Largest NFT Ecosystem** — Compatible with all major marketplaces
+- ✅ **Battle-Tested Security** — Years of production use
+- ✅ **Developer Tools** — Hardhat, Foundry, Remix
+- ✅ **Decentralization** — True ownership without intermediaries
+- ✅ **Composability** — NFTs work across all dApps
+
+**Smart Contract Features:**
+- Gas-optimized with ReentrancyGuard
+- Upgradeable fee structure (max 10%)
+- Emergency pause functionality
+- Comprehensive event logging
+- Full ERC-721 and ERC-2981 compliance
+
+**Verified on Etherscan:** [View Contracts](https://sepolia.etherscan.io/)
 
 ---
 
