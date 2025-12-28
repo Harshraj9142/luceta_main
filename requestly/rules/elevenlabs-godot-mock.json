@@ -1,0 +1,175 @@
+{
+  "appMode": "EXTENSION",
+  "groups": [
+    {
+      "id": "elevenlabs-godot-mocks",
+      "name": "ElevenLabs Godot Extension Mocks",
+      "status": "Active",
+      "objectType": "group"
+    }
+  ],
+  "rules": [
+    {
+      "id": "mock-elevenlabs-tts",
+      "name": "1. Mock ElevenLabs Text-to-Speech",
+      "description": "Returns mock audio for TTS requests - saves API credits during development",
+      "ruleType": "Redirect",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/text-to-speech"
+          },
+          "destination": "https://www.soundjay.com/buttons/beep-01a.mp3"
+        }
+      ]
+    },
+    {
+      "id": "mock-elevenlabs-sfx",
+      "name": "2. Mock ElevenLabs Sound Effects",
+      "description": "Returns mock SFX audio for sound generation requests",
+      "ruleType": "Redirect",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/sound-generation"
+          },
+          "destination": "https://www.soundjay.com/mechanical/sounds/explosion-01.mp3"
+        }
+      ]
+    },
+    {
+      "id": "mock-elevenlabs-voices",
+      "name": "3. Mock ElevenLabs Voices List",
+      "description": "Returns mock voices list without API call",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/voices"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"voices\": [\n    {\n      \"voice_id\": \"mock_warrior_voice\",\n      \"name\": \"Epic Warrior (MOCK)\",\n      \"category\": \"game_character\",\n      \"labels\": {\"accent\": \"american\", \"gender\": \"male\", \"age\": \"middle_aged\"}\n    },\n    {\n      \"voice_id\": \"mock_wizard_voice\",\n      \"name\": \"Wise Wizard (MOCK)\",\n      \"category\": \"game_character\",\n      \"labels\": {\"accent\": \"british\", \"gender\": \"male\", \"age\": \"old\"}\n    },\n    {\n      \"voice_id\": \"mock_princess_voice\",\n      \"name\": \"Royal Princess (MOCK)\",\n      \"category\": \"game_character\",\n      \"labels\": {\"accent\": \"british\", \"gender\": \"female\", \"age\": \"young\"}\n    },\n    {\n      \"voice_id\": \"mock_villain_voice\",\n      \"name\": \"Dark Villain (MOCK)\",\n      \"category\": \"game_character\",\n      \"labels\": {\"accent\": \"german\", \"gender\": \"male\", \"age\": \"middle_aged\"}\n    },\n    {\n      \"voice_id\": \"mock_narrator_voice\",\n      \"name\": \"Game Narrator (MOCK)\",\n      \"category\": \"narrator\",\n      \"labels\": {\"accent\": \"american\", \"gender\": \"male\", \"age\": \"middle_aged\"}\n    }\n  ],\n  \"mocked_by\": \"Requestly\",\n  \"note\": \"These are mock voices for Godot game development\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "mock-elevenlabs-models",
+      "name": "4. Mock ElevenLabs Models",
+      "description": "Returns mock models list",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/models"
+          },
+          "response": {
+            "type": "static",
+            "value": "[\n  {\n    \"model_id\": \"eleven_monolingual_v1\",\n    \"name\": \"Eleven Monolingual v1 (MOCK)\",\n    \"can_be_finetuned\": true,\n    \"can_do_text_to_speech\": true,\n    \"can_do_voice_conversion\": false,\n    \"languages\": [{\"language_id\": \"en\", \"name\": \"English\"}]\n  },\n  {\n    \"model_id\": \"eleven_multilingual_v2\",\n    \"name\": \"Eleven Multilingual v2 (MOCK)\",\n    \"can_be_finetuned\": true,\n    \"can_do_text_to_speech\": true,\n    \"can_do_voice_conversion\": true,\n    \"languages\": [\n      {\"language_id\": \"en\", \"name\": \"English\"},\n      {\"language_id\": \"es\", \"name\": \"Spanish\"},\n      {\"language_id\": \"fr\", \"name\": \"French\"},\n      {\"language_id\": \"de\", \"name\": \"German\"},\n      {\"language_id\": \"ja\", \"name\": \"Japanese\"}\n    ]\n  }\n]",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "mock-elevenlabs-user",
+      "name": "5. Mock ElevenLabs User/Subscription",
+      "description": "Returns mock user data with unlimited credits",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/user"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"subscription\": {\n    \"tier\": \"pro_unlimited_mock\",\n    \"character_count\": 0,\n    \"character_limit\": 999999999,\n    \"can_extend_character_limit\": true,\n    \"allowed_to_extend_character_limit\": true,\n    \"next_character_count_reset_unix\": 9999999999,\n    \"voice_limit\": 100,\n    \"professional_voice_limit\": 10,\n    \"can_use_instant_voice_cloning\": true,\n    \"currency\": \"usd\",\n    \"status\": \"active\"\n  },\n  \"is_new_user\": false,\n  \"xi_api_key\": \"mock_api_key_for_godot_dev\",\n  \"mocked_by\": \"Requestly\",\n  \"note\": \"Unlimited mock credits for game development!\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "delay-elevenlabs-generation",
+      "name": "6. Simulate Generation Delay",
+      "description": "Adds realistic delay to mock audio generation",
+      "ruleType": "Delay",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/text-to-speech"
+          },
+          "delay": 1500
+        },
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io/v1/sound-generation"
+          },
+          "delay": 2000
+        }
+      ]
+    },
+    {
+      "id": "add-elevenlabs-headers",
+      "name": "7. Add Test Mode Headers",
+      "description": "Marks requests as test/mock mode",
+      "ruleType": "Headers",
+      "status": "Active",
+      "groupId": "elevenlabs-godot-mocks",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "api.elevenlabs.io"
+          },
+          "modifications": {
+            "Request": [
+              {
+                "type": "Add",
+                "header": "X-Luceta-Mock-Mode",
+                "value": "godot-development"
+              },
+              {
+                "type": "Add",
+                "header": "X-Requestly-Enabled",
+                "value": "elevenlabs-mock"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

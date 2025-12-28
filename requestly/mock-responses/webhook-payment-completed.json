@@ -1,0 +1,29 @@
+{
+  "id": "evt_mock_payment_completed_001",
+  "type": "payment.completed",
+  "created_at": "2025-12-28T12:00:00Z",
+  "data": {
+    "payment_id": "pay_mock_luceta_001",
+    "customer_id": "cus_mock_demo_001",
+    "amount": 9900,
+    "currency": "USD",
+    "status": "completed",
+    "payment_method": {
+      "type": "card",
+      "brand": "visa",
+      "last4": "4242"
+    },
+    "metadata": {
+      "platform": "luceta-audio",
+      "source": "pricing_page",
+      "plan_type": "monthly",
+      "product_name": "Pro",
+      "product_category": "pro"
+    }
+  },
+  "_requestly": {
+    "mocked": true,
+    "rule": "mock_webhook_events",
+    "purpose": "Test webhook handler without real payments"
+  }
+}

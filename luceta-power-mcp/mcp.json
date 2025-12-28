@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "Luceta": {
+      "command": "uvx",
+      "args": ["elevenlabs-mcp"],
+      "env": {
+        "ELEVENLABS_API_KEY": "sk_99fbb05177be9f58c60b0a8f5854f840d006387254551b5a",
+        "ELEVENLABS_MCP_BASE_PATH": "/Users/harsh/Desktop/testing/output"
+        //"ELEVENLABS_API_RESIDENCY": "us"
+      }
+    }
+  }
+}
+

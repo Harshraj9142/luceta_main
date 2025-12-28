@@ -1,0 +1,151 @@
+[gd_scene load_steps=2 format=3 uid="uid://agent_sfx_dock"]
+
+[ext_resource type="Script" path="res://addons/agent-sfx/dock.gd" id="1_dock"]
+
+[node name="AgentSFXDock" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dock")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="TopPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TopPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/TopPanel/VBoxContainer2"]
+layout_mode = 2
+text = "🎵 Agent SFX"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopPanel/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AnalyzeButton" type="Button" parent="VBoxContainer/TopPanel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 28)
+layout_mode = 2
+text = "🔍 Analyze Code"
+
+[node name="RevertButton" type="Button" parent="VBoxContainer/TopPanel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 28)
+layout_mode = 2
+text = "↩️ Revert All"
+disabled = true
+
+[node name="ProgressLabel" type="Label" parent="VBoxContainer/TopPanel/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ready"
+text_overrun_behavior = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/TopPanel/VBoxContainer2"]
+visible = false
+layout_mode = 2
+max_value = 100.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ResultsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ReviewPanel" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ReviewPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ReviewPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Review Sound Suggestions:"
+theme_override_font_sizes/font_size = 12
+
+[node name="SuggestionsScroll" type="ScrollContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SuggestionsList" type="VBoxContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/SuggestionsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="GenerateButton" type="Button" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🎵 Generate Audio"
+
+[node name="IntegrateButton" type="Button" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🔗 Integrate"
+disabled = true
+
+[node name="AddSoundPanel" type="PanelContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddSoundVBox" type="VBoxContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="AddSoundLabel" type="Label" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel/AddSoundVBox"]
+layout_mode = 2
+text = "➕ Add Custom Sound:"
+
+[node name="AddSoundHBox" type="HBoxContainer" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel/AddSoundVBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SoundNameEdit" type="LineEdit" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel/AddSoundVBox/AddSoundHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "sound_name"
+
+[node name="AddSoundButton" type="Button" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel/AddSoundVBox/AddSoundHBox"]
+layout_mode = 2
+text = "Add"
+
+[node name="SoundPromptEdit" type="LineEdit" parent="VBoxContainer/ReviewPanel/MarginContainer/VBoxContainer/AddSoundPanel/AddSoundVBox"]
+layout_mode = 2
+placeholder_text = "Describe the sound (e.g., 'magical sparkle effect, 0.5s')"

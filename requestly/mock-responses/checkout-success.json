@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "checkout_url": "https://demo.dodopayments.com/checkout/mock_session_luceta_001",
+  "session_id": "mock_session_luceta_001",
+  "product": {
+    "id": "pdt_0NV05rFxgWtor793xLtta",
+    "name": "Pro Plan",
+    "price": "$99.00",
+    "category": "pro",
+    "features": [
+      "Advanced gesture recognition",
+      "Up to 1,000 audio experiences/month",
+      "Multi-platform deployment",
+      "Priority support"
+    ]
+  },
+  "customer": {
+    "email": "demo@luceta.audio",
+    "name": "Demo Customer"
+  },
+  "metadata": {
+    "platform": "luceta-audio",
+    "source": "requestly_mock",
+    "plan_type": "monthly",
+    "demo_mode": true
+  },
+  "_requestly": {
+    "mocked": true,
+    "rule": "mock_checkout_success",
+    "timestamp": "2025-12-28T00:00:00Z"
+  }
+}

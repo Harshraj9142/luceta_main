@@ -1,0 +1,17 @@
+{
+  "success": false,
+  "error": "Payment processing failed",
+  "error_code": "PAYMENT_DECLINED",
+  "message": "The payment was declined by the card issuer. Please try a different payment method.",
+  "details": {
+    "decline_code": "insufficient_funds",
+    "merchant_message": "The card has insufficient funds to complete the purchase."
+  },
+  "retry_allowed": true,
+  "support_url": "https://luceta.audio/support",
+  "_requestly": {
+    "mocked": true,
+    "rule": "chaos_mode_random_failures",
+    "purpose": "Test error handling UI"
+  }
+}

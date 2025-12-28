@@ -1,0 +1,218 @@
+{
+  "appMode": "EXTENSION",
+  "groups": [
+    {
+      "id": "luceta-demo-rules",
+      "name": "Luceta Demo Rules",
+      "status": "Active",
+      "objectType": "group"
+    }
+  ],
+  "rules": [
+    {
+      "id": "mock-checkout-success",
+      "name": "1. Mock Checkout Success",
+      "description": "Returns mock checkout response without calling Dodo Payments API",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/checkout"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"success\": true,\n  \"checkout_url\": \"https://demo.dodopayments.com/checkout/mock_session_luceta\",\n  \"session_id\": \"mock_session_luceta_123\",\n  \"product\": {\n    \"id\": \"pdt_mock_demo\",\n    \"name\": \"Pro Plan (DEMO MODE)\",\n    \"price\": \"$99.00\",\n    \"category\": \"pro\"\n  },\n  \"demo_mode\": true,\n  \"mocked_by\": \"Requestly\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "mock-nft-listings",
+      "name": "2. Mock NFT Listings",
+      "description": "Returns mock NFT marketplace data",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/listings"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"success\": true,\n  \"total\": 5,\n  \"nfts\": [\n    {\n      \"tokenId\": 0,\n      \"owner\": \"0xDemo123...\",\n      \"isListed\": true,\n      \"priceEth\": \"0.05\",\n      \"metadata\": {\n        \"name\": \"Epic Battle Theme (MOCK)\",\n        \"description\": \"Orchestral battle music - Mocked by Requestly\",\n        \"image\": \"\",\n        \"animation_url\": \"\",\n        \"attributes\": [{\"trait_type\": \"Genre\", \"value\": \"Orchestral\"}]\n      }\n    },\n    {\n      \"tokenId\": 1,\n      \"owner\": \"0xDemo456...\",\n      \"isListed\": true,\n      \"priceEth\": \"0.02\",\n      \"metadata\": {\n        \"name\": \"Lo-Fi Chill Beats (MOCK)\",\n        \"description\": \"Relaxing lo-fi music - Mocked by Requestly\",\n        \"image\": \"\",\n        \"animation_url\": \"\",\n        \"attributes\": [{\"trait_type\": \"Genre\", \"value\": \"Lo-Fi\"}]\n      }\n    },\n    {\n      \"tokenId\": 2,\n      \"owner\": \"0xDemo789...\",\n      \"isListed\": true,\n      \"priceEth\": \"0.1\",\n      \"metadata\": {\n        \"name\": \"Sci-Fi Ambience (MOCK)\",\n        \"description\": \"Futuristic soundscape - Mocked by Requestly\",\n        \"image\": \"\",\n        \"animation_url\": \"\",\n        \"attributes\": [{\"trait_type\": \"Genre\", \"value\": \"Ambient\"}]\n      }\n    }\n  ],\n  \"listed\": [],\n  \"mocked_by\": \"Requestly\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "mock-ipfs-upload",
+      "name": "3. Mock IPFS Upload",
+      "description": "Returns mock IPFS upload response",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/upload"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"success\": true,\n  \"audioURI\": \"ipfs://QmMockAudioCID123456789\",\n  \"imageURI\": \"ipfs://QmMockImageCID987654321\",\n  \"metadataURI\": \"ipfs://QmMockMetadataCID555555\",\n  \"metadata\": {\n    \"name\": \"Demo Upload (MOCK)\",\n    \"description\": \"This upload was mocked by Requestly\",\n    \"image\": \"ipfs://QmMockImageCID987654321\",\n    \"animation_url\": \"ipfs://QmMockAudioCID123456789\"\n  },\n  \"mocked_by\": \"Requestly\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "mock-webhook",
+      "name": "4. Mock Webhook Events",
+      "description": "Returns mock webhook response for payment events",
+      "ruleType": "Response",
+      "status": "Active",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/webhooks"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"success\": true,\n  \"event_id\": \"evt_mock_webhook_luceta\",\n  \"event_type\": \"payment.completed\",\n  \"message\": \"Mock webhook processed successfully\",\n  \"data\": {\n    \"payment_id\": \"pay_mock_luceta_123\",\n    \"amount\": 9900,\n    \"currency\": \"USD\",\n    \"customer_email\": \"demo@luceta.audio\",\n    \"product\": \"Pro Plan\"\n  },\n  \"mocked_by\": \"Requestly\"\n}",
+            "statusCode": "200"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "delay-checkout",
+      "name": "5. Delay Checkout (3s)",
+      "description": "Adds 3 second delay to checkout requests to test loading states",
+      "ruleType": "Delay",
+      "status": "Inactive",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/checkout"
+          },
+          "delay": 3000
+        }
+      ]
+    },
+    {
+      "id": "delay-listings",
+      "name": "6. Delay NFT Listings (2s)",
+      "description": "Adds 2 second delay to listings to test loading states",
+      "ruleType": "Delay",
+      "status": "Inactive",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/listings"
+          },
+          "delay": 2000
+        }
+      ]
+    },
+    {
+      "id": "add-test-headers",
+      "name": "7. Add Test Mode Headers",
+      "description": "Adds custom headers to identify test/demo requests",
+      "ruleType": "Headers",
+      "status": "Active",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/"
+          },
+          "modifications": {
+            "Request": [
+              {
+                "type": "Add",
+                "header": "X-Luceta-Demo-Mode",
+                "value": "true"
+              },
+              {
+                "type": "Add",
+                "header": "X-Requestly-Enabled",
+                "value": "luceta-hackathon"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "simulate-error-checkout",
+      "name": "8. Simulate Checkout Error",
+      "description": "Returns error response to test error handling",
+      "ruleType": "Response",
+      "status": "Inactive",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/checkout"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"error\": \"Payment service temporarily unavailable\",\n  \"code\": \"SERVICE_UNAVAILABLE\",\n  \"retry_after\": 30,\n  \"simulated_by\": \"Requestly Chaos Mode\"\n}",
+            "statusCode": "503"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    },
+    {
+      "id": "simulate-error-upload",
+      "name": "9. Simulate Upload Error",
+      "description": "Returns error for IPFS upload to test error handling",
+      "ruleType": "Response",
+      "status": "Inactive",
+      "groupId": "luceta-demo-rules",
+      "pairs": [
+        {
+          "source": {
+            "key": "Url",
+            "operator": "Contains",
+            "value": "/api/upload"
+          },
+          "response": {
+            "type": "static",
+            "value": "{\n  \"error\": \"IPFS gateway timeout - file too large\",\n  \"code\": \"IPFS_TIMEOUT\",\n  \"max_size\": \"50MB\",\n  \"simulated_by\": \"Requestly Chaos Mode\"\n}",
+            "statusCode": "504"
+          },
+          "serveWithoutRequest": true
+        }
+      ]
+    }
+  ]
+}
